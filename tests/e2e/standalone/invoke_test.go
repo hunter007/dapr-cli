@@ -42,11 +42,13 @@ func TestStandaloneInvoke(t *testing.T) {
 
 		md, ok := metadata.FromIncomingContext(ctx)
 		if ok {
+			fmt.Printf("---------------: %+v", md)
 			values := md.Get("Some-Header")
 			if len(values) > 0 {
 				val.Data = []byte(values[0])
 			}
 		}
+		fmt.Println("---------------:11")
 		return val, nil
 	})
 
