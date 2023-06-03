@@ -34,7 +34,7 @@ func TestStandaloneInvokeWithGrpc(t *testing.T) {
 	ensureDaprInstallation(t)
 	s, _ := daprGrpc.NewService(":9986")
 
-	err := s.AddServiceInvocationHandler("/test", func(ctx context.Context, e *common.InvocationEvent) (*common.Content, error) {
+	err := s.AddServiceInvocationHandler("test", func(ctx context.Context, e *common.InvocationEvent) (*common.Content, error) {
 		val := &common.Content{
 			Data:        e.Data,
 			ContentType: e.ContentType,
