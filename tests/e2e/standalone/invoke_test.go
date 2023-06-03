@@ -45,7 +45,7 @@ func TestStandaloneInvoke(t *testing.T) {
 			fmt.Printf("---------------: %+v", md)
 			values := md.Get("Some-Header")
 			if len(values) > 0 {
-				val.Data = []byte(values[0])
+				val.Data = append(val.Data, []byte(values[0])...)
 			}
 		}
 		fmt.Println("---------------:11")
@@ -112,7 +112,7 @@ func TestStandaloneInvoke(t *testing.T) {
 				assert.Contains(t, output, "error invoking app invoke_e2e: 404 Not Found")
 			})
 
-			t.Run(fmt.Sprintf("invoke mehod %s with http headers", path), func(t *testing.T) {
+			t.Run(fmt.Sprintf("invoke method %s with http headers", path), func(t *testing.T) {
 				output, err := cmdInvoke("invoke_e2e", "test", path, "--header", "Some-Header=aValue")
 				t.Log(output)
 				assert.NoError(t, err, "")
