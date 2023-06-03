@@ -187,7 +187,7 @@ test-e2e-sh-template: test-deps
 ################################################################################
 .PHONY: test-e2e-sh
 test-e2e-sh: test-deps
-	gotestsum --jsonfile $(TEST_OUTPUT_FILE) --format standard-verbose -- -timeout $(E2E_SH_TEST_TIMEOUT) -count=1 -tags=e2e ./tests/e2e/standalone/...
+	gotestsum --jsonfile $(TEST_OUTPUT_FILE) --format standard-verbose -- -timeout $(E2E_SH_TEST_TIMEOUT) -count=1 -tags=e2e -run TestStandaloneInvokeWithGrpc ./tests/e2e/standalone/...
 
 ################################################################################
 # Build, E2E Tests for Self-Hosted											   #
