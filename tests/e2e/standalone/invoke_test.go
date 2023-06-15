@@ -24,7 +24,6 @@ import (
 	"testing"
 
 	"github.com/dapr/go-sdk/service/common"
-	daprGrpc "github.com/dapr/go-sdk/service/grpc"
 	daprHttp "github.com/dapr/go-sdk/service/http"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
